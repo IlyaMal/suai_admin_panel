@@ -1,0 +1,33 @@
+{% extends 'admin_panel/base.html' %}
+
+{% block content %}
+
+<form method="post" action="{% url 'admin_panel:index' %}">
+    {% csrf_token %}
+    <div class="text-center">
+        <h1>Рассылка</h1>
+    </div>
+    
+    <div class="input-group mb-3">
+        <span class="input-group-text">With textarea</span>
+        <textarea class="form-control" aria-label="With textarea" name="message"></textarea>
+    </div>
+    
+    <div class="mb-3">
+        <label for="formFile" class="form-label">Default file input example</label>
+        <input class="form-control" type="file" id="formFile" name="file">
+    </div>
+
+    <label for="formFile" class="form-label">Разослать всем</label>
+    <div class="input-group mb-3">
+        <div class="input-group-text">
+          <input class="form-check-input mt-0" name="is_send_all" id="disableInput" type="checkbox" value="true" aria-label="Checkbox for following text input">
+        </div>
+        <input type="text" name="id" class="form-control" id="textInput" aria-label="Text input with checkbox">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Отправить</button>
+</form>
+
+
+{% endblock %}
