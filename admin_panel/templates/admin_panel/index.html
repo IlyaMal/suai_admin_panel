@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<form method="post" action="{% url 'admin_panel:index' %}">
+<form method="post" action="{% url 'admin_panel:index' %}" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="text-center">
         <h1>Рассылка</h1>
@@ -15,7 +15,7 @@
     
     <div class="mb-3">
         <label for="formFile" class="form-label">Default file input example</label>
-        <input class="form-control" type="file" id="formFile" name="file">
+        <input class="form-control file" type="file" id="formFile" name="file">
     </div>
 
     <label for="formFile" class="form-label">Разослать всем</label>
