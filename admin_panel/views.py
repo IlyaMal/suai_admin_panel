@@ -31,5 +31,14 @@ class IndexView(View):
     def post(self, request):
         request_data = request.POST
         request_file = request.FILES.get("file")
-        send(request_data, request_file)
+        url = '/for/all'
+        ids = None
+
+        is_send_all = True if request_data.get("is_send_all") else False
+
+        if not is_send_all:
+            ids = [int(idx) for idx in request_data.get('ids').split(' ')]
+            url = '/for/any'
+
+        send(f"http://127.0.0.1:8080{url}", request_data, request_file, ids)
         return redirect(reverse("admin_panel:index"))
