@@ -5,6 +5,10 @@ from . import views
 app_name = 'api'
  
 urlpatterns = [
-    path('users/', views.UserApiView.as_view()),
-    path('queries/', views.QueryListApiView.as_view())
+    path('users/', views.UserListApiView.as_view()),
+    path('users/create/', views.UserCreateApiView.as_view()),
+    path('users/<int:pk>/', views.UserRetrieveAPIView.as_view()),
+    path('queries/', views.QueryListApiView.as_view()),
+    path('queries/create/', views.QueryCreateApiView.as_view()),
+    path('queries/<int:pk>/', views.QueryRetrieveAPIView.as_view()),
 ]

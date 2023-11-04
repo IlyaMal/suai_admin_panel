@@ -2,8 +2,6 @@ from django.db import models
 
 # Create your models here.
 class User(models.Model):
-    id = models.BigIntegerField(primary_key=True)
-
     username = models.CharField(max_length=255)
 
     first_name = models.CharField(max_length=255)
@@ -21,8 +19,6 @@ class User(models.Model):
 
 
 class Query(models.Model):
-    id = models.BigIntegerField(primary_key=True)
-     
     text = models.CharField(max_length=255)
     type = models.CharField(max_length=255)
 

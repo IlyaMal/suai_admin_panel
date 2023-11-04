@@ -5,8 +5,6 @@ from django.urls import reverse
 from functools import wraps
 from django.core.exceptions import PermissionDenied
 from .services.mailer import send
-from django.core.files.storage import FileSystemStorage
-from lab_bot.settings import MEDIA_ROOT
 
 def is_admin(view_func):
     @wraps(view_func)

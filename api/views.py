@@ -4,20 +4,29 @@ from admin_panel.models import User, Query
 from .serializers import UserSerializer, QuerySerializer
 
 
-class UserApiView(views.APIView):
-    def get(self, args, **kwargs):
-        users = User.objects.all().values()
-        return Response(UserSerializer(users, many=True).data)
-    
-    def post(self, request):
-        serializer: UserSerializer = UserSerializer(data=request.data)
+class UserListApiView(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
 
-        return Response(serializer.data)
-    
+class UserCreateApiView(generics.CreateAPIView):
+    serializer_class = UserSerializer
+
+
+class UserRetrieveAPIView(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
+class QueryCreateApiView(generics.CreateAPIView):
+    serializer_class = QuerySerializer
+
 
 class QueryListApiView(generics.ListAPIView):
+    queryset = Query.objects.all()
+    serializer_class = QuerySerializer
+
+
+class QueryRetrieveAPIView(generics.RetrieveAPIView):
     queryset = Query.objects.all()
     serializer_class = QuerySerializer
