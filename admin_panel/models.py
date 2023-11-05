@@ -7,7 +7,7 @@ class User(models.Model):
     first_name = models.CharField(verbose_name="Имя", max_length=255)
     last_name = models.CharField(verbose_name="Фамилия", max_length=255)
 
-    group_number = models.IntegerField(verbose_name="Номер группы")
+    group_number = models.CharField(verbose_name="Номер группы", max_length=10)
     ticket_number = models.CharField(verbose_name="Номер профкома", max_length=255)
     telegram_id = models.BigIntegerField(verbose_name="Телеграмм ID")
 
