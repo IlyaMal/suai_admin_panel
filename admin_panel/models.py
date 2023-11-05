@@ -10,7 +10,6 @@ class User(models.Model):
     group_number = models.IntegerField(verbose_name="Номер группы")
     ticket_number = models.CharField(verbose_name="Номер профкома", max_length=255)
     telegram_id = models.BigIntegerField(verbose_name="Телеграмм ID")
-    current_query_id = models.BigIntegerField(verbose_name="Текущий номер запроса")
 
     class Meta:
         verbose_name = 'Студент'
