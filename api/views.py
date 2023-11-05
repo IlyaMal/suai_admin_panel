@@ -1,5 +1,4 @@
-from rest_framework import views, generics
-from rest_framework.response import Response
+from rest_framework import generics
 from admin_panel.models import User, Query
 from .serializers import UserSerializer, QuerySerializer
 
