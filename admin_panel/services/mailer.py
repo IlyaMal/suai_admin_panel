@@ -8,7 +8,7 @@ def _save_image(request_file):
     fs = FileSystemStorage(location=MEDIA_ROOT)
     filename = fs.save(request_file.name, request_file)
     print(MEDIA_ROOT + filename)
-    return MEDIA_ROOT + '\\' + filename
+    return MEDIA_ROOT + '/' + filename
 
 
 def _image_to_byte_code(image_path):
