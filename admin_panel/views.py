@@ -10,7 +10,7 @@ def is_admin(view_func):
     @wraps(view_func)
     def _wrapped_view(self, request: HttpRequest, *args, **kwargs):
         if not request.user.is_authenticated or not request.user.is_staff:
-            raise PermissionDenied()
+            return redirect(reverse("admin:login"))
         return view_func(self, request, *args, **kwargs)
     return _wrapped_view
 

@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 class User(models.Model):
+    id = models.BigIntegerField(verbose_name="Телеграмм ID", primary_key=True)
     username = models.CharField(verbose_name="Имя пользователя", max_length=255)
 
     first_name = models.CharField(verbose_name="Имя", max_length=255)
@@ -9,14 +10,13 @@ class User(models.Model):
 
     group_number = models.CharField(verbose_name="Номер группы", max_length=10)
     ticket_number = models.CharField(verbose_name="Номер профкома", max_length=255)
-    telegram_id = models.BigIntegerField(verbose_name="Телеграмм ID")
 
     class Meta:
         verbose_name = 'Студент'
         verbose_name_plural = 'Студенты'
 
-    def __str__(self) -> str:
-        return self.username
+    # def __str__(self) -> str:
+    #     return str(self.id)
 
 
 
