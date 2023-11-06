@@ -1,6 +1,7 @@
-from rest_framework import generics
-from admin_panel.models import User, Query
-from .serializers import UserSerializer, QuerySerializer
+from rest_framework import generics, views
+from admin_panel.models import User, Query, WorkingDay
+from .serializers import UserSerializer, QuerySerializer, WorkingDaySerializer
+from rest_framework.response import Response
 
 
 class UserListApiView(generics.ListAPIView):
@@ -29,3 +30,11 @@ class QueryListApiView(generics.ListAPIView):
 class QueryRetrieveAPIView(generics.RetrieveAPIView):
     queryset = Query.objects.all()
     serializer_class = QuerySerializer
+
+
+class WorkingDayListAPIView(generics.ListAPIView):
+    serializer_class = WorkingDaySerializer
+
+    def get_queryset(self):
+        office_id = self.kwargs['office_id']
+        return WorkingDay.objects.filter(office=office_id)

@@ -58,7 +58,6 @@ class WorkingDay(models.Model):
 
     office = models.IntegerField(
         verbose_name='Адрес профкома',
-        max_length=40,
         choices=OFFICES_ADDRESS_CHOISES,
         default=1
     )

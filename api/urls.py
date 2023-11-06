@@ -11,4 +11,5 @@ urlpatterns = [
     path('queries/', views.QueryListApiView.as_view()),
     path('queries/create/', views.QueryCreateApiView.as_view()),
     path('queries/<int:pk>/', views.QueryRetrieveAPIView.as_view()),
+    path('offices/working_days/<int:office_id>/', views.WorkingDayListAPIView.as_view())
 ]
