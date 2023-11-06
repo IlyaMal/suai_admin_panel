@@ -44,22 +44,28 @@ class WorkingDay(models.Model):
     )
 
     OFFICES_ADDRESS_CHOISES = (
-        (1, 'Большая морская 67'),
-        (2, 'Ленсовета 14'),
-        (3, 'Гастелло 14'),
+        ('Большая морская 67', 1),
+        ('Ленсовета 14', 2),
+        ('Гастелло 14', 3),
     )
 
     day_of_week = models.CharField(
+        verbose_name='День недели',
         max_length=9,
         choices=DAYS_OF_WEEK_CHOICES,
         default='monday',
     )
 
     office = models.CharField(
+        verbose_name='Адрес профкома',
         max_length=40,
         choices=OFFICES_ADDRESS_CHOISES,
         default=1
     )
 
-    start_time = models.TimeField()
-    close_time = models.TimeField()
+    start_time = models.TimeField(verbose_name='Начало работы')
+    close_time = models.TimeField(verbose_name='Конец работы')
+
+    class Meta:
+        verbose_name = 'Рабочий день'
+        verbose_name_plural = 'Рабочие дни'
