@@ -44,9 +44,9 @@ class WorkingDay(models.Model):
     )
 
     OFFICES_ADDRESS_CHOISES = (
-        ('1', 'Большая морская 67'),
-        ('2', 'Ленсовета 14'),
-        ('3', 'Гастелло 14'),
+        (1, 'Большая морская 67'),
+        (2, 'Ленсовета 14'),
+        (3, 'Гастелло 14'),
     )
 
     day_of_week = models.CharField(
@@ -56,7 +56,7 @@ class WorkingDay(models.Model):
         default='monday',
     )
 
-    office = models.CharField(
+    office = models.IntegerField(
         verbose_name='Адрес профкома',
         max_length=40,
         choices=OFFICES_ADDRESS_CHOISES,

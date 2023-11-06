@@ -12,4 +12,4 @@ class QueryAdmin(admin.ModelAdmin):
 
 @admin.register(models.WorkingDay)
 class WorkingDayAdmin(admin.ModelAdmin):
-    list_display = ('start_time', 'close_time', 'day_of_week', 'office')
+    list_display = ('day_of_week', 'start_time', 'close_time', 'office')
