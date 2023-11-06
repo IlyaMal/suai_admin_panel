@@ -9,3 +9,7 @@ class UserAdmin(admin.ModelAdmin):
 @admin.register(models.Query)
 class QueryAdmin(admin.ModelAdmin):
     list_display = ('text', 'type', 'user')
+
+@admin.register(models.WorkingDay)
+class WorkingDayAdmin(admin.ModelAdmin):
+    list_display = ('start_time', 'close_time', 'day_of_week', 'office')

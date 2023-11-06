@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class User(models.Model):
     id = models.BigIntegerField(verbose_name="Телеграмм ID", primary_key=True)
@@ -29,3 +30,36 @@ class Query(models.Model):
     class Meta:
         verbose_name = 'Обращение'
         verbose_name_plural = 'Обращения'
+
+
+class WorkingDay(models.Model):
+    DAYS_OF_WEEK_CHOICES = (
+        ('monday', 'Понедельник'),
+        ('tuesday', 'Вторник'),
+        ('wednesday', 'Среда'),
+        ('thursday', 'Четверг'),
+        ('friday', 'Пятница'),
+        ('saturday', 'Суббота'),
+        ('sunday', 'Воскресенье'),
+    )
+
+    OFFICES_ADDRESS_CHOISES = (
+        (1, 'Большая морская 67'),
+        (2, 'Ленсовета 14'),
+        (3, 'Гастелло 14'),
+    )
+
+    day_of_week = models.CharField(
+        max_length=9,
+        choices=DAYS_OF_WEEK_CHOICES,
+        default='monday',
+    )
+
+    office = models.CharField(
+        max_length=40,
+        choices=OFFICES_ADDRESS_CHOISES,
+        default=1
+    )
+
+    start_time = models.TimeField()
+    close_time = models.TimeField()
