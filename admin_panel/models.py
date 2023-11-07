@@ -51,7 +51,7 @@ class WorkingDay(models.Model):
 
     day_of_week = models.CharField(
         verbose_name='День недели',
-        max_length=9,
+        max_length=15,
         choices=DAYS_OF_WEEK_CHOICES,
         default='monday',
     )
