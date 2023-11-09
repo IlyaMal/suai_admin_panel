@@ -68,3 +68,7 @@ class WorkingDay(models.Model):
     class Meta:
         verbose_name = 'Рабочий день'
         verbose_name_plural = 'Рабочие дни'
+
+
+    def __str__(self) -> str:
+        return self.day_of_week + self.office
