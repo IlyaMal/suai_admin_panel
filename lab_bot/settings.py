@@ -17,10 +17,7 @@ from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-ENV_PATH = BASE_DIR / ".env"
 
-if os.path.exists(ENV_PATH):
-    load_dotenv(ENV_PATH)
 
 
 # Quick-start development settings - unsuitable for production
@@ -33,7 +30,6 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = True if os.getenv("DEBUG") in ["1", 1, "True", True] else False
 
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split()
-
 
 # Application definition
 
@@ -93,21 +89,14 @@ WSGI_APPLICATION = 'lab_bot.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'suai',
-        'USER': 'postgres',
-        'PASSWORD': '1561',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': os.getenv("DATABASE_NAME"),
+        'USER': os.getenv("DATABASE_USER"),
+        'PASSWORD': os.getenv("DATABASE_PASSWORD"),
+        'HOST': os.getenv("HOST"),
+        'PORT': os.getenv("PORT"),
     }
 }
 
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
 
 # Password validation
