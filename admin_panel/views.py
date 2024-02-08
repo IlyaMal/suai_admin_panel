@@ -38,5 +38,5 @@ class IndexView(View):
             ids = [int(idx) for idx in request_data.get('ids').split(' ')]
             url = '/for/any'
 
-        send(f"http://0.0.0.0:8765{url}", request_data, request_file, ids)
+        # send(f"http://0.0.0.0:8765{url}", request_data, request_file, ids)
         return redirect(reverse("admin_panel:index"))
